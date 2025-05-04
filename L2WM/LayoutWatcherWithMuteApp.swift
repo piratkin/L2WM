@@ -46,7 +46,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let userInfo = notification.userInfo,
            let app = userInfo[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication {
             if app.bundleIdentifier == "com.apple.Music" {
-                app.forceTerminate()
+                let script = """
+                tell application "Music"
+                    quit
+                end tell
+                """
+                var error: NSDictionary?
+                if let scriptObject = NSAppleScript(source: script) {
+                    scriptObject.executeAndReturnError(&error)
+                }
             }
         }
     }

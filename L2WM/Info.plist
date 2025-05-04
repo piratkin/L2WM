@@ -10,5 +10,7 @@
 	<string>com.piratkin.l2wm</string>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>This app needs to control Music app to terminate it when needed</string>
 </dict>
 </plist>
