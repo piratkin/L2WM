@@ -45,8 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func applicationLaunched(_ notification: Notification) {
         if let userInfo = notification.userInfo,
            let app = userInfo[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication {
-            if app.bundleIdentifier == "com.apple.iTunes" ||
-                app.bundleIdentifier == "com.apple.Music" {
+            if app.bundleIdentifier == "com.apple.Music" {
                 app.forceTerminate()
             }
         }
